@@ -2,14 +2,9 @@
 
 namespace VetClinic.Controllers
 {
-    public class RegistrationController : Controller
+    public class ServiceController : VetClinicBaseController
     {
         public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult MyAction()
         {
             return View();
         }

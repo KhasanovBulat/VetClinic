@@ -4,7 +4,7 @@ using VetClinic.Models;
 
 namespace VetClinic.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : VetClinicBaseController
     {
         private readonly ILogger<HomeController> _logger;
 
