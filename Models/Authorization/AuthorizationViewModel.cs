@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace VetClinic.Models.Account
+namespace VetClinic.Models.Authorization
 {
-    public class AccountViewModel
+    public class AuthorizationViewModel
     {
         public LoginViewModel LoginViewModel { get; set; }
 
@@ -12,7 +12,7 @@ namespace VetClinic.Models.Account
     public class LoginViewModel
     {
         [Required(ErrorMessage = "Обязательное поле")]
-        public string Login { get; set;}
+        public string Login { get; set; }
 
         [Required(ErrorMessage = "Обязательное поле")]
         public string Password { get; set; }
@@ -28,6 +28,6 @@ namespace VetClinic.Models.Account
 
         [Required(ErrorMessage = "Обязательное поле")]
         [Compare("Password", ErrorMessage = "Пароли не совпадают")]
-        public string RepeatPassword { get; set;}
+        public string RepeatPassword { get; set; }
     }
 }
