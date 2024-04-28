@@ -9,7 +9,7 @@ namespace VetClinic.Controllers
             return View();
         }
 
-        public IActionResult MyAction()
+        public IActionResult Login()
         {
             return View();
         }
