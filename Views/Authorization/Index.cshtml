@@ -1,4 +1,7 @@
-﻿@{
+﻿@using VetClinic.Models.Authorization;
+@model VetClinic.Models.Authorization.AuthorizationViewModel
+
+@{
     ViewData["Title"] = "Authorization";
 }
 
@@ -8,4 +11,18 @@
 </div>
 
 
+<div class="tab-content">
+    <div class="tab-pane fade" id="pills-login" role="tabpanel">
+        @{
+            ViewData.TemplateInfo.HtmlFieldPrefix = "l";
             await Html.RenderComponentAsync<LoginComponent>(RenderMode.Server, Model?.LoginViewModel);
+        }
+    </div>
+
+    <div class="tab-pane fade" id="pills-register" role="tabpanel">
+        @{
+            ViewData.TemplateInfo.HtmlFieldPrefix = "r";
+            await Html.RenderComponentAsync<RegisterComponent>(RenderMode.Server, Model?.RegisterViewModel);
+        }
+    </div>
+</div>
