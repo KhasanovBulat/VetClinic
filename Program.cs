@@ -33,6 +33,6 @@ app.MapControllerRoute(
 
 app.MapControllerRoute(
     name: "registration",
-    pattern: "{controller=Registration}/{action=MyAction}/{id?}");
+    pattern: "{controller=Authorization}/{action=Index}/{id?}");
 
 app.Run();
