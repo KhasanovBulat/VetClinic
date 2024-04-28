@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using VetClinic.Domain;
 
@@ -9,6 +10,8 @@ builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
 var connectionString = builder.Configuration.GetConnectionString("Default");
 builder.Services.AddDbContext<VetClinicContext>(opt =>opt.UseSqlServer(connectionString));
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options => options.LoginPath = "/authorization");
 
 var app = builder.Build();
 

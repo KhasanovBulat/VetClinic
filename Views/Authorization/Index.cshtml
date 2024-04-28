@@ -1,4 +1,5 @@
 ﻿@using VetClinic.Models.Authorization;
+@using VetClinic.Components;
 @model VetClinic.Models.Authorization.AuthorizationViewModel
 
 @{
@@ -10,19 +11,29 @@
     <p>Авторизуйтесь, либо зарегистрируйтесь на нашем сайте</p>
 </div>
 
+<!-- Вкладки навигации -->
+<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="pills-login-tab" data-bs-toggle="pill" data-bs-target="#pills-login" type="button" role="tab" aria-controls="pills-login" aria-selected="true">Вход</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-register-tab" data-bs-toggle="pill" data-bs-target="#pills-register" type="button" role="tab" aria-controls="pills-register" aria-selected="false">Регистрация</button>
+    </li>
+</ul>
 
-<div class="tab-content">
-    <div class="tab-pane fade" id="pills-login" role="tabpanel">
+<!-- Содержимое вкладок -->
+<div class="tab-content" id="pills-tabContent">
+    <!-- Вкладка Вход -->
+    <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="pills-login-tab">
         @{
-            ViewData.TemplateInfo.HtmlFieldPrefix = "l";
-            await Html.RenderComponentAsync<LoginComponent>(RenderMode.Server, Model?.LoginViewModel);
+            await Html.RenderPartialAsync("_Login", Model?.LoginViewModel);
         }
     </div>
-
-    <div class="tab-pane fade" id="pills-register" role="tabpanel">
+    <!-- Вкладка Регистрация -->
+    <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="pills-register-tab">
         @{
-            ViewData.TemplateInfo.HtmlFieldPrefix = "r";
-            await Html.RenderComponentAsync<RegisterComponent>(RenderMode.Server, Model?.RegisterViewModel);
+            await Html.RenderPartialAsync("_Register", Model?.RegisterViewModel);
         }
     </div>
 </div>
+

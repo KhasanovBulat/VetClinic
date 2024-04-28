@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using VetClinic.Models;
 
 namespace VetClinic.Controllers
 {
+    //[Authorize]
     public class HomeController : VetClinicBaseController
     {
         private readonly ILogger<HomeController> _logger;
