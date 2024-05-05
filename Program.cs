@@ -38,4 +38,9 @@ app.MapControllerRoute(
     name: "registration",
     pattern: "{controller=Authorization}/{action=Index}/{id?}");
 
+app.MapControllerRoute(
+    name: "login",
+    pattern: "{controller=Authorization}/{action=Login}/{id?}");
+
+
 app.Run();

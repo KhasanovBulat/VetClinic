@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 using VetClinic.Domain;
 using VetClinic.Domain.Entities;
 using VetClinic.Models.Authorization;
+using Microsoft.EntityFrameworkCore;
 
 namespace VetClinic.Controllers
 {
@@ -92,9 +92,5 @@ namespace VetClinic.Controllers
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Login", "Account");
         }
-
-
-
-
     }
 }
