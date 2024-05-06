@@ -1,6 +1,7 @@
 ﻿@using VetClinic.Models.Authorization;
 @model RegisterViewModel
 
+<div class="centered-form-container">
 <form asp-action="Register" asp-controller="Authorization">
     <div class="mb-3">
         <div class="input-group">
@@ -57,3 +58,4 @@
     <div class="text-danger mb-3"> @ViewBag.RegisterError </div>
     <button type="submit" class="btm btm-primary w-100">Создать аккаунт</button>
 </form>
+</div>

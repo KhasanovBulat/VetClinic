@@ -2700,6 +2700,20 @@ textarea.form-control-lg {
 .form-floating > .form-control:disabled ~ label::after {
   background-color: var(--bs-secondary-bg);
 }
+.centered-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Полная высота видимой части экрана */
+}
+
+.centered-form {
+    width: 100%; /* Максимальная ширина формы */
+    max-width: 400px; /* Фиксированная максимальная ширина */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Небольшая тень для лучшей видимости */
+    background-color: white; /* Фон формы, если необходим */
+}
 
 .input-group {
   position: relative;
@@ -3189,7 +3203,7 @@ textarea.form-control-lg {
   --bs-btn-disabled-border-color: #212529;
 }
 
-.btn-outline-primary {
+/*.btn-outline-primary {
   --bs-btn-color: #0d6efd;
   --bs-btn-border-color: #0d6efd;
   --bs-btn-hover-color: #fff;
@@ -3204,7 +3218,7 @@ textarea.form-control-lg {
   --bs-btn-disabled-bg: transparent;
   --bs-btn-disabled-border-color: #0d6efd;
   --bs-gradient: none;
-}
+}*/
 
 .btn-outline-secondary {
   --bs-btn-color: #6c757d;
@@ -3950,7 +3964,7 @@ textarea.form-control-lg {
   display: block;
 }
 
-.navbar {
+/*.navbar {
   --bs-navbar-padding-x: 0;
   --bs-navbar-padding-y: 0.5rem;
   --bs-navbar-color: rgba(var(--bs-emphasis-color-rgb), 0.65);
@@ -3977,7 +3991,30 @@ textarea.form-control-lg {
   align-items: center;
   justify-content: space-between;
   padding: var(--bs-navbar-padding-y) var(--bs-navbar-padding-x);
+}*/
+.navbar {
+    background-color: #f8f9fa !important; /* Цвет фона навигационной панели */
+    box-shadow: 0 2px 4px rgba(0,0,0,.1); /* Тень для навигационной панели */
 }
+
+.navbar-brand {
+    font-weight: bold; /* Сделать текст логотипа жирным */
+}
+
+.nav-link {
+    color: #555 !important; /* Цвет ссылок в навигации */
+}
+
+.btn-outline-primary {
+    color: #007bff; /* Цвет текста кнопки */
+    border-color: #007bff; /* Цвет границы кнопки */
+}
+
+    .btn-outline-primary:hover {
+        background-color: #007bff; /* Цвет фона при наведении */
+        color: white; /* Цвет текста при наведении */
+    }
+
 .navbar > .container,
 .navbar > .container-fluid,
 .navbar > .container-sm,
@@ -3990,7 +4027,7 @@ textarea.form-control-lg {
   align-items: center;
   justify-content: space-between;
 }
-.navbar-brand {
+/*.navbar-brand {
   padding-top: var(--bs-navbar-brand-padding-y);
   padding-bottom: var(--bs-navbar-brand-padding-y);
   margin-right: var(--bs-navbar-brand-margin-end);
@@ -3998,7 +4035,7 @@ textarea.form-control-lg {
   color: var(--bs-navbar-brand-color);
   text-decoration: none;
   white-space: nowrap;
-}
+}*/
 .navbar-brand:hover, .navbar-brand:focus {
   color: var(--bs-navbar-brand-hover-color);
 }

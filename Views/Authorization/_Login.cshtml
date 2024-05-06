@@ -1,6 +1,7 @@
 ﻿@using VetClinic.Models.Authorization;
 @model LoginViewModel
 
+<div class="centered-form-container">
 <form asp-action="Login" asp-controller="Authorization">
     <div class="mb-3">
         <div class="input-group">
@@ -36,3 +37,4 @@
     <div class="text-danger mb-3"> @ViewBag.Error </div>
     <button type="submit" class="btm btm-primary w-100">Войти</button>
 </form>
+</div>

@@ -17,3 +17,28 @@ body {
   margin-bottom: 60px;
 }
 
+.centered-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;  /*Полная высота видимой части экрана */
+}
+.centered-tabs-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 20vh;
+}
+
+.centered-form {
+    width: 100%;  /*Максимальная ширина формы */
+    max-width: 400px;  /*Фиксированная максимальная ширина */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);  /*Небольшая тень для лучшей видимости */
+    background-color: white;  /*Фон формы, если необходим */
+}
+
+.input-group {
+    margin-bottom: 20px;  /*Отступ для группы ввода */
+}
