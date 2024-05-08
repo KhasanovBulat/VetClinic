@@ -5,7 +5,7 @@ using VetClinic.Domain;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+// builder.Services.AddControllersWithViews();
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
 var connectionString = builder.Configuration.GetConnectionString("Default");
@@ -35,12 +35,12 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.MapControllerRoute(
-    name: "registration",
-    pattern: "{controller=Authorization}/{action=Index}/{id?}");
+    name: "regasync",
+    pattern: "{controller=Authorization}/{action=RegisterAsync}/{id?}");
 
 app.MapControllerRoute(
-    name: "login",
-    pattern: "{controller=Authorization}/{action=Login}/{id?}");
+    name: "authorization",
+    pattern: "{controller=Authorization}/{action=}/{id?}");
 
 
 app.Run();

@@ -12,17 +12,20 @@ namespace VetClinic.Controllers
     public class AuthorizationController : VetClinicBaseController
     {
         private readonly VetClinicContext _context;
+
+        public AuthorizationController(VetClinicContext context)
+        {
+            _context = context;
+        }
+
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult Login()
-        {
-            return View();
-        }
-
-        public async Task<IActionResult> LoginAsync([Bind(Prefix = "u")] LoginViewModel model)
+        [Route("Authorization/Login")]        
+        
+        public async Task<IActionResult> LoginAsync([Bind()] LoginViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -46,7 +49,7 @@ namespace VetClinic.Controllers
             await AuthenticateAsync(user);
             return RedirectToAction("Index", "Home");
         }
-
+        [Route("Authorization/Authenticate")]
         private async Task AuthenticateAsync(User user)
         {
             var claims = new List<Claim>
@@ -58,22 +61,15 @@ namespace VetClinic.Controllers
             var id = new ClaimsIdentity(claims, "ApplicationCookie", ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(id));
         }
-
-        public async Task<IActionResult> RegisterAsync([Bind(Prefix = "r")] RegisterViewModel model)
+        [Route("Authorization/Register")]
+        [HttpPost]
+        public async Task<IActionResult> RegisterAsync([Bind()] RegisterViewModel model)
         {
-            if (!ModelState.IsValid)
-            {
-                return View("Index", new AuthorizationViewModel
-                {
-                    RegisterViewModel = model
-                });
-            }
-
             var user = await _context.Users.FirstOrDefaultAsync(u => u.Login == model.Login);
             if (user != null)
             {
                 ViewBag.RegisterError = "Пользователь с таким логином уже существует!";
-                return View("Index", new AuthorizationViewModel
+                return View("_Register", new AuthorizationViewModel
                 {
                     RegisterViewModel = model
                 });
@@ -86,11 +82,11 @@ namespace VetClinic.Controllers
             await AuthenticateAsync(user);
             return RedirectToAction("Index", "Home");
         }
-
+        [Route("Authorization/Logout")]
         public async Task<IActionResult> LogoutAsync()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return RedirectToAction("Login", "Account");
+            return RedirectToAction("Login", "Authorization");
         }
     }
 }
