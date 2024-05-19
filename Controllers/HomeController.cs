@@ -5,7 +5,7 @@ using VetClinic.Models;
 
 namespace VetClinic.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class HomeController : VetClinicBaseController
     {
         private readonly ILogger<HomeController> _logger;

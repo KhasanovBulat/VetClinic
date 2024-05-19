@@ -19,9 +19,4 @@
     <ProjectReference Include="..\VetClinic.Domain\VetClinic.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Models\Account\" />
-    <Folder Include="Views\Account\" />
-  </ItemGroup>
-
 </Project>
